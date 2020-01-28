@@ -28,10 +28,3 @@ class SortByArrival implements Comparator<Process> {
 		return p1.AT-p2.AT;
 	}
 }
-
-class SortByPriority implements Comparator<Process> {
-	@Override
-	public int compare(Process p1, Process p2) {
-		return p1.PR-p2.PR;
-	}
-}
