@@ -49,6 +49,17 @@ public class PassOne {
 	}
 
 	public String constantPair(String literal) {
-		
+		string value = literal.replace("=","").replace("'","");
+		return "(C,"+ value +")";
 	}
+
+	public String constantPair(int value) {
+		return "(C,"+ value +")";
+	}
+
+	public String literalPair(OperandEntry entry) {
+		int idx = LITTAB.indexOf(entry);
+		return "(L,"+ idx +")";
+	}	
+
 }
