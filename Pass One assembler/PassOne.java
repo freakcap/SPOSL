@@ -130,7 +130,19 @@ public class PassOne {
 				LC = expr(parts[2]);
 				code.append((!OPTAB.get(parts[1]).isAssemblerDirective()) ? (LC + "  ") : ("---  "));
 				code.append(OPTAB.get(parts[1])).append("  "); 	// (AD,01/03)
-				code.append(constantPair(LC) + "\n"); 						// (C,200)
+				if(parts[2].contains("+"))
+				{
+					String ppts[]=parts[2].split("\\+");
+					code.append(SYMTAB.get(ppts[0])).append("+").append(ppts[1]+"\n");
+				}
+				else if(parts[2].contains("-"))
+				{
+					String ppts[]=parts[2].split("\\-");
+					code.append(SYMTAB.get(ppts[0])).append("-").append(ppts[1]+"\n");
+				}
+				else{
+				code.append(constantPair(LC) + "\n");
+				} 				// (C,202)
 			}
 
 			// If EQU statement
@@ -140,7 +152,19 @@ public class PassOne {
 
 				code.append((!OPTAB.get(parts[1]).isAssemblerDirective()) ? (LC + "  ") : ("---  "));
 				code.append(OPTAB.get("EQU")).append("  "); 	// (AD,04)
-				code.append(constantPair(addr) + "\n"); 				// (C,202)
+				if(parts[2].contains("+"))
+				{
+					String ppts[]=parts[2].split("\\+");
+					code.append(SYMTAB.get(ppts[0])).append("+").append(ppts[1]+"\n");
+				}
+				else if(parts[2].contains("-"))
+				{
+					String ppts[]=parts[2].split("\\-");
+					code.append(SYMTAB.get(ppts[0])).append("-").append(ppts[1]+"\n");
+				}
+				else{
+				code.append(constantPair(addr) + "\n");
+				} 				// (C,202)
 				LC++;
 			}
 											
