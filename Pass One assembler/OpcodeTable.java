@@ -1,10 +1,10 @@
-import java.util.Hashmap;
+import java.util.HashMap;
 
 public class OpcodeTable {
-	private final Hashmap<String,OpcodeEntry> OPTAB;
+	private final HashMap<String,OpcodeEntry> OPTAB;
 
 	public OpcodeTable() {
-		OPTAB = new Hashmap<>();
+		OPTAB = new HashMap<>();
 
 		OPTAB.put("STOP", new OpcodeEntry("IS", 0));
 		OPTAB.put("ADD", new OpcodeEntry("IS", 1));
@@ -22,8 +22,8 @@ public class OpcodeTable {
 		OPTAB.put("ORIGIN", new OpcodeEntry("AD", 3));
 		OPTAB.put("EQU", new OpcodeEntry("AD", 4));
 		OPTAB.put("LTORG", new OpcodeEntry("AD", 5));
-		OPTAB.put("DS", new OpcodeEntry("DL", 1));
-		OPTAB.put("DC", new OpcodeEntry("DL", 2));
+		OPTAB.put("DS", new OpcodeEntry("DL", 2));
+		OPTAB.put("DC", new OpcodeEntry("DL", 1));
 		OPTAB.put("AREG", new OpcodeEntry("RG", 1));
 		OPTAB.put("BREG", new OpcodeEntry("RG", 2));
 		OPTAB.put("CREG", new OpcodeEntry("RG", 3));

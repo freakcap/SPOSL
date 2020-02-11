@@ -9,7 +9,7 @@ public class OperandEntry {
 		index = 0;
 	}
 
-	public OperandEntry(String literal,int abstract ,int index) {
+	public OperandEntry(String literal,int address,int index) {
 		this.literal = literal;
 		this.address = address;
 		this.index = index;
