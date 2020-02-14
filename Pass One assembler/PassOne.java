@@ -165,7 +165,6 @@ public class PassOne {
 				else{
 				code.append(constantPair(addr) + "\n");
 				} 				// (C,202)
-				LC++;
 			}
 											
 			// If declarative statement

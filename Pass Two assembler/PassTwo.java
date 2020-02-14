@@ -66,8 +66,13 @@ public class PassTwo {
 
 			if(str[1].contains(DECLARATIVE)) {
 				code.append(str[0]).append("  ");
-				code.append("+00").append("  ").append("00").append("  ");
+				if(Integer.parseInt(str[1].replaceAll("[^0-9]",""))==02) {
+					code.append("\n");
+				}
+				else {
+				code.append("+00").append("  ").append("0").append("  ");
 				handleOperation(str[2]);
+				}
 			}
 
 			if(str[1].contains(IMPERATIVE)) {
@@ -77,14 +82,14 @@ public class PassTwo {
 
 				switch(str.length) {
 					case 2:
-						code.append("00").append("  ").append("000\n");
+						code.append("0").append("  ").append("000\n");
 						break;
 					case 3:
-						code.append("00").append("  ");
+						code.append("0").append("  ");
 						handleOperation(str[2]);
 						break;
 					case 4:
-						code.append(String.format("%02d",Integer.parseInt(str[2].replaceAll("[^0-9]","")))).append("  ");
+						code.append(String.format("%01d",Integer.parseInt(str[2].replaceAll("[^0-9]","")))).append("  ");
 						handleOperation(str[3]);
 				}
 			}
